@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>RIVAL PH</title>
+    <link rel="icon" href=  "src/web-icon.png" type="image/x-icon" />
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+    <style>
+        body {
+            padding-top: 60px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+        }
+
+        /* Navbar toggle button style */
+        .navbar-toggler-icon {
+            display: inline-block;
+            position: relative;
+            width: 30px;
+            height: 2px;
+            background-color: rgb(235, 81, 9);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background-color: rgb(235, 81, 9);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar-toggler-icon::before {
+            top: -8px;
+        }
+
+        .navbar-toggler-icon::after {
+            top: 8px;
+        }
+
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+            background-color: transparent;
+        }
+
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+        .nav-link{
+            color: black;
+            font-weight: bold;
+            transition: 0.5s;
+            opacity: 0.6 ;
+        }
+        .nav-link:hover{
+            color: rgb(235, 81, 9);
+            opacity: 2;
+        }
+
+        .hero-section {
+            background: rgb(228, 222, 222);
+            color: black;
+            padding: 100px 0;
+            padding-bottom: 0px;
+            padding-top: 50px;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            
+        }
+        .fea-prod{
+            background: rgb(228, 222, 222);
+            padding: 20px;
+            margin-top: 20px;
+            transition: 0.5s;
+        }
+        .fea-prod:hover{
+            background: rgb(235, 81, 9);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .new-prod{
+            padding: 0px;
+            margin-top: 20px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        }
+        .brand{
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        /* The Modal (background) */
+.modal .modal2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    text-align: center;
+    background-image: url('src/bg-offer.png');
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close .close2 {
+  color: rgb(235, 81, 9);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: rgb(228, 222, 222);
+  color: rgb(235, 81, 9);
+}
+
+.modal-body {padding: 2px 16px;
+background-color: rgb(228, 222, 222);
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: rgb(228, 222, 222);
+  color: white;
+}
+@media (max-width: 576px) {
+    #home h1 {
+        font-size: 45px; /* Smaller font size for extra-small screens */
+    }
+
+    #home p {
+        font-size: 15px; /* Adjust text size for small screens */
+    }
+    #button{
+        width: 90px;
+    }
+    .footer h1 {
+        font-size: 10px;
+        
+    }
+    .footer p,a {
+        font-size: 10px;
+    }
+    #home-words{
+        padding-top: 30px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    #home h1 {
+        font-size: 50px; /* Adjust for small to medium screens */
+        
+    }
+    #home p {
+        font-size: 25px; /* Adjust text size for small screens */
+    }
+    .footer h1 {
+        font-size: 20px;
+        
+    }
+    .footer p,a {
+        font-size: 15px;
+    }
+    #home-words{
+        padding-top: 60px;
+    }
+}
+
+@media (min-width: 768px)  {
+    #home h1 {
+        font-size: 100px; /* Full size font for medium and larger screens */
+    }
+    #home p {
+        font-size: 35px; /* Adjust text size for small screens */
+    }
+    .footer h1 {
+        font-size: 30px;
+    }
+    #link {
+        font-size: 20px;
+    }
+    #home-words{
+        padding-top: 100px;
+    }
+    
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <section id="home">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top">
+            <div class="container">
+               
+                <img src="src/web-icon.png" alt="" width="50px" style="border-radius: 100px;">
+                <a class="navbar-brand" href="#home" style="padding-left: 20px;color:  rgb(235, 81, 9);font-weight: bold;font-family: 'Times New Roman', Times, serif;font-size: 30px;">RIVAL</a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="#home" id="nav-home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#featured" id="nav-about">Featured</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#new" id="nav-projects">New</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact" id="nav-contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#new" id="nav-contact">🛒</a>
+                        </li>
+                        <li class="nav-item disable">
+                            <iframe src="https://free.timeanddate.com/clock/i9rlckig/n1238/tt0/tw0/tm1/tb4" frameborder="0" width="87" height="34"></iframe>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </nav>
+    </section>
+
+    <!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content text-center">
+      <div class="modal-header ">
+        <span class="close">&times;</span>
+        <h2 style="padding-left: 20px;color:  rgb(235, 81, 9);font-weight: bold;font-family: 'Times New Roman', Times, serif;font-size: 30px;">RIVAL</h2>
+      </div>
+      <div class="modal-body">
+        <h1 class="h4  m-4">Thank you for choosing our product. We appreciate your trust and we’ll do our best to meet your expectations.</h1>
+        <p>Thank you for supporting our small business.</p>
+      </div>
+      <div class="modal-footer">
+       <a href="add.html"> <button   class="neu-button" style="background-color: black; color: white; border: none; border-radius: 5px; padding: 15px; width: 130px;font-size: 13px;font-family: Arial, Helvetica, sans-serif;">ADD TO CART</button></a>
+       <a href="test.html"> <button   class="btn-success" style="background-color: rgb(235, 81, 9); color: white; border: none; border-radius: 5px; padding: 15px; width: 130px;font-size: 13px;font-family: Arial, Helvetica, sans-serif;">PLACE ORDER</button></a>
+    
+    </div>
+    </div>
+  
+  </div>
+ <!-- The 2nd Modal -->
+  
+    <!-- Hero Section -->
+    <header class="hero-section" >
+        <div id="home" class="container">
+            <div class="row">
+                <div id="home-words" class="col-6 ">
+                    <h1 style=" color: black; font-family:'Times New Roman', Times, serif;font-weight: bold;">N E W</h1>
+                    <p style="font-weight: bold;">A R <span style="color:  rgb(235, 81, 9);">R I V A L</span>  S</p>
+                    
+                   <a href="#featured"><button style="background-color: rgb(235, 81, 9); color: white; border: none; border-radius: 5px; padding: 10px;font-size: 13px;font-family: Arial, Helvetica, sans-serif;">GO SHOPPING</button></a> 
+                    
+                </div>
+                <div class="col-6 ">
+                    <img class="img-fluid" src="src/model.png"  alt=""   >
+                </div>
+
+            </div>
+          
+        </div>
+    </header>
+   
+     <!-- bag Section -->
+    <div id="bag" class="row " >
+        <div class="col-md-6 ">
+            <div class="row m-5 p-3" style="background-color:  rgb(228, 222, 222) ;">
+            <div class="col-md-5 p-4">
+                <img src="src/bag-g.png" alt="" width="150px">
+            </div>
+            <div class="col-md-5 p-4">
+                <p class="h3">W O M E N</p>
+                <h1>BACKPACK</h1>
+                <a href=""  style="text-decoration: none;color: rgb(235, 81, 9);">view collection</a>
+                    </div>
+        
+        </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row m-5  p-3" style="background-color:  rgb(228, 222, 222) ;">
+                <div class="col-md-5 p-4  " >
+                    <p class="h3">M E N</p>
+                    <h1>BACKPACK</h1>
+                    <a href="" style="text-decoration: none;color: rgb(235, 81, 9);">view collection</a>
+                </div>
+                <div class="col-md-5 ">
+                    <img src="src/bag-b.png" alt="" width="150px">
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <section id="featured" >
+      
+        <div class="container">
+            
+            <br>
+           
+            <div class="row m-5 ">
+                <h1 class="text-center h2" style="font-family: 'Times New Roman', Times, serif;">F E A T U R E D <br>P R O D U C T </h1>
+                <a class="text-center" href="featured.html" style="text-decoration: none;color: rgb(235, 81, 9);padding: 10px;font-size: 20px;" >view All</a>
+             <div class="col-md-3">
+              
+                <img class="fea-prod " src="src/featured1.png" alt="" width="200px" >
+                <h1 style="font-size: 15px;padding-top: 5px;font-weight: bold; ">HEADPHONE ONE BLOCK</h1>
+                <p >⭐⭐⭐⭐⭐(46)reviews</p>
+                <p style="color: rgb(235, 81, 9);"> ₱499.00</p>
+                <button id="myBtn" class="neu-button" style="background-color: rgb(235, 81, 9); color: white; border: none; border-radius: 5px; padding: 15px; width: 130px;font-size: 13px;font-family: Arial, Helvetica, sans-serif;">BUY NOW</button>
+             </div>
+             <div class="col-md-3">
+                <img class="fea-prod" src="src/featured2.png" alt="" width="200px">
+                <h1 style="font-size: 15px;padding-top: 5px;font-weight: bold;">JBL SPEAKER</h1>
+                <p >⭐⭐⭐⭐⭐(64)reviews</p>
+                <p style="color: rgb(235, 81, 9);"> ₱799.00</p>
+                <button   id="myBtn" class="neu-button" style="background-color: rgb(235, 81, 9); color: white; border: none; border-radius: 5px; padding: 15px; width: 130px;font-size: 13px;font-family: Arial, Helvetica, sans-serif;">BUY NOW</button>
+             </div>
+             <div class="col-md-3">
+                <img class="fea-prod" src="src/featured3.png" alt="" width="230px">
+                <h1 style="font-size: 15px;padding-top: 10px;font-weight: bold;">APPLE AIR PODS</h1>
+                <p >⭐⭐⭐⭐⭐(68)reviews</p>
+                <p style="color: rgb(235, 81, 9);"> ₱7,999.00</p>
+                <button class="neu-button" style="background-color: rgb(235, 81, 9); color: white; border: none; border-radius: 5px; padding: 15px; width: 130px;font-size: 13px;font-family: Arial, Helvetica, sans-serif;">BUY NOW</button>
+             </div>
+             <div class="col-md-3 ">
+                <img class="fea-prod text-center" src="src/featured4.png" alt="" width="200px">
+                <h1 style="font-size: 15px;padding-top: 10px;font-weight: bold;">SAMSUNG SMARTWATCH</h1>
+                <p >⭐⭐⭐⭐⭐(79)reviews</p>
+                <p style="color: rgb(235, 81, 9);"> ₱14,890.00</p>
+                <button id="myBtn" class="neu-button" style="background-color: rgb(235, 81, 9); color: white; border: none; border-radius: 5px; padding: 15px; width: 130px;font-size: 13px;font-family: Arial, Helvetica, sans-serif;">BUY NOW</button>
+             </div>
+            </div>
+        </div>
+    </section>
+   
+     <!-- special offer -->
+       <div class="container text-center">
+        <img src="src/bg-offer.png" class="img-fluid" alt="Responsive image">
+       
+                <h1 class="h2">S P E C I A L &nbsp; O F F E R</h1>
+                <p>Special offers discount for men this week only.</p>
+          
+         
+       </div>
+      
+       <!-- new arrival Section -->
+       <section id="new" class="text-center">
+        
+        <div class="container">
+            <br>
+            <br>
+            <h1 class="h2" style="font-family: 'Times New Roman', Times, serif;margin-top: 20px;">N E W &nbsp; A R R I V A L </h1>
+            <a href="new.html" style="text-decoration: none;color: rgb(235, 81, 9);padding: 10px;font-size: 20px;" >view All</a>
+                <div class="row m-4">
+                    <div  class="col-md-4">
+                        <img class="new-prod " src="src/new1.png" alt="" width="300px">
+                        <h1 style="font-size: 20px;padding-top: 10px;font-weight: bold;">SHOULDER BAG BLACK</h1>
+                        <p>Original price ₱890.00</p>
+                        <p style="color: rgb(235, 81, 9);">Now ₱690.00</p>
+                        <button id="myBtn" class="neu-button" style="background-color: rgb(235, 81, 9); color: white; border: none; border-radius: 5px; padding: 15px; width: 130px;font-size: 13px;font-family: Arial, Helvetica, sans-serif;">BUY NOW</button>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="new-prod" src="src/new2.png" alt="" width="300px">
+                        <h1 style="font-size: 20px;padding-top: 10px;font-weight: bold;">LOUI VUITTON HAND BAG</h1>
+                        <p>Original price ₱356,799.00</p>
+                        <p style="color: rgb(235, 81, 9);">Now ₱299,799.00</p>
+                        <button id="myBtn" class="neu-button" style="background-color: rgb(235, 81, 9); color: white; border: none; border-radius: 5px; padding: 15px; width: 130px;font-size: 13px;font-family: Arial, Helvetica, sans-serif;">BUY NOW</button>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="new-prod" src="src/new3.png" alt="" width="300px">
+                        <h1 style="font-size: 20px;padding-top: 10px;font-weight: bold;">PRADA BLACK WALLET</h1>
+                        <p>Original price ₱150,899.00</p>
+                        <p style="color: rgb(235, 81, 9);">Now ₱99,899.00</p>
+                        <button id="myBtn" class="neu-button" style="background-color: rgb(235, 81, 9); color: white; border: none; border-radius: 5px; padding: 15px; width: 130px;font-size: 13px;font-family: Arial, Helvetica, sans-serif;">BUY NOW</button>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="new-prod" src="src/new4.png" alt="" width="300px">
+                        <h1 style="font-size: 20px;padding-top: 10px;font-weight: bold;">CHANEL BLACK BACKPACK</h1>
+                        <p>Original price ₱238,999.00</p>
+                        <p style="color: rgb(235, 81, 9);">Now ₱199,999.00</p>
+                        <button id="myBtn" class="neu-button" style="background-color: rgb(235, 81, 9); color: white; border: none; border-radius: 5px; padding: 15px; width: 130px;font-size: 13px;font-family: Arial, Helvetica, sans-serif;">BUY NOW</button>
+                    </div>
+                    <div class="col-md-4">
+                         <img class="new-prod" src="src/new5.png" alt="" width="300px">
+                         <h1 style="font-size: 20px;padding-top: 10px;font-weight: bold;">ROLEX AQUA BLUE</h1>
+                         <p>Original price ₱789,000.00</p>
+                         <p style="color: rgb(235, 81, 9);">Now ₱500,000.00</p>
+                         <button id="myBtn" class="neu-button" style="background-color: rgb(235, 81, 9); color: white; border: none; border-radius: 5px; padding: 15px; width: 130px;font-size: 13px;font-family: Arial, Helvetica, sans-serif;">BUY NOW</button>
+                        </div>
+                    <div class="col-md-4">
+                        <img class="new-prod" src="src/new6.png" alt="" width="300px">
+                        <h1 style="font-size: 20px;padding-top: 10px;font-weight: bold;">LOUI VUITTON SHADES</h1>
+                        <p>Original price ₱199,000.00</p>
+                        <p style="color: rgb(235, 81, 9);">Now ₱159,000.00</p>
+                        <button id="myBtn" class="neu-button" style="background-color: rgb(235, 81, 9); color: white; border: none; border-radius: 5px; padding: 15px; width: 130px;font-size: 13px;font-family: Arial, Helvetica, sans-serif;">BUY NOW</button>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+     <!-- contact Section -->
+       <section id="contact" class="text-center">
+        <div class="container">
+            <br>
+            <br>
+            <h1 class="h1" style="font-family: 'Times New Roman', Times, serif;margin-top: 20px;">C o n t a c t &nbsp; u s</h1>
+           <p>We're here to help and answer any questions you might have.We look forward to hering from you!</p>
+
+          
+           <div class="row ">
+            <div class="col-3"></div>
+            <div class="col-3">
+                <a href=""><i class="fa fa-facebook" style="font-size: 15px;color: rgb(235, 81, 9);">&nbsp;facebook</i></a>
+            </div>
+            <div class="col-3">
+                <a href=""><i class="fa fa-instagram" style="font-size: 15px;color: rgb(235, 81, 9);margin-bottom: 20px;">&nbsp;instagram</i></a>
+            </div>
+            <div class="col-3"></div>
+            <div class="col-3 ">
+                <img class="brand img-fluid" src="src/brand1.png" alt="" >
+            </div>
+            <div class="col-3">
+                <img  class="brand img-fluid" src="src/brand2.png" alt="" >
+            </div>
+            <div  class="col-3">
+                <img class="brand img-fluid" src="src/brand3.png" alt="" >
+            </div>
+            <div class="col-3">
+                <img class="brand img-fluid" src="src/brand4.png" alt="" >
+            </div>
+           </div>
+        </div>
+       </section>
+
+      
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row p-5">
+                <div class="col-3">
+                    <h1  style="font-family: 'Times New Roman', Times, serif;">RIVAL PH</h1>
+                    <p>Product Store</p>
+                    <div class="col-3">
+                        <a href="" id="link" style="color: grey;text-decoration: none;">🅻&nbsp;LAZADA</a>
+                    </div>
+                    <div class="col-3">
+                        <a href="" id="link" style="color: grey;margin-bottom: 20px;text-decoration: none;">🆂&nbsp;SHOPEE</a>
+                    </div>
+                </div>
+                <div class="col-3">
+                  <h1 >EXPLORE</h1>
+                  <ul style=" list-style-type: none;padding: 0;">
+                    <li><a href=""  style="text-decoration: none;color: grey;">HOME</a></li>
+                    <li><a href=""  style="text-decoration: none;color: grey;">FEATURED</a></li>
+                    <li><a href=""  style="text-decoration: none;color: grey;">NEW</a></li>
+                    <li><a href=""  style="text-decoration: none;color: grey;">CONTACT</a></li>
+                  </ul>
+                    
+                </div>
+                <div class="col-3">
+                    <h1 >SERVICES</h1>
+                    <ul style=" list-style-type: none;padding: 0;">
+                        <li><a href=""  style="text-decoration: none;color: grey;">PRICING</a></li>
+                        <li><a href=""  style="text-decoration: none;color: grey;">FREE SHIPING</a></li>
+                        <li><a href=""  style="text-decoration: none;color: grey;">GIFT CARD</a></li>
+                        
+                      </ul>
+                </div>
+                <div class="col-3">
+                    <h1 >FOLLOW</h1>
+                    <div class="col-3">
+                        <a href="" id="link"><i class="fa fa-facebook" style="color: grey;">&nbsp;facebook</i></a>
+                    </div>
+                    <div  class="col-3">
+                        <a href=""id="link"><i class="fa fa-instagram" style="color: grey;margin-bottom: 20px;">&nbsp;instagram</i></a>
+                    </div>
+                </div>
+            </div>
+            
+           
+        
+        </div>
+        <h1 style="border-top:rgb(228, 222, 222)  solid 1px;padding-top: 20px;text-align: center;color: grey;padding-bottom: 20px;">Copyright &#9400;2025 Design by Jay Vhon Serrano</h1>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+       
+        
+        // Get the button that opens the modal
+        var buttons = document.querySelectorAll(".neu-button");
+        
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks the button, open the modal 
+        buttons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    modal.style.display = "block";
+  });
+});
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+      
+        // add to cart//
+    
+            
+        </script>
+</body>
+
+</html>
